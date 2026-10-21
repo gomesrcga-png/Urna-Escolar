@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Urna Eletrônica Escolar</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="topo">
+    <div class="simbolo" aria-hidden="true">UE</div>
+    <div>
+      <p class="sobretitulo">ELEIÇÃO DO GRÊMIO ESTUDANTIL</p>
+      <h1>Urna Eletrônica Escolar</h1>
+    </div>
+    <div class="status" id="status-eleicao">Verificando eleição...</div>
+  </header>
+
+  <main class="layout">
+    <section class="urna" aria-labelledby="titulo-urna">
+      <div class="cabecalho-painel">
+        <span class="led" aria-hidden="true"></span>
+        <h2 id="titulo-urna">Identificação e votação</h2>
+      </div>
+
+      <div class="aviso">
+        <strong>VOTO SECRETO</strong>
+        <p>O nome é registrado separadamente do voto. A apuração fica bloqueada até o encerramento da eleição.</p>
+      </div>
+
+      <label for="nome-eleitor">Digite seu nome completo</label>
+      <input id="nome-eleitor" type="text" autocomplete="name" maxlength="120" placeholder="Nome e sobrenome">
+      <p class="ajuda">O sistema impede a repetição do mesmo nome normalizado, mas não consegue confirmar a identidade do aluno.</p>
+
+      <div class="visor">
+        <p class="rotulo">NÚMERO DA CHAPA</p>
+        <div id="numero" class="numero" aria-live="polite">_ _ _</div>
+        <p id="mensagem" class="mensagem" role="status" aria-live="polite">Carregando configuração da eleição...</p>
+
+        <section id="cartao-chapa" class="cartao-chapa" hidden aria-live="polite">
+          <div id="foto-area" class="foto-area">FOTO DA EQUIPE</div>
+          <div class="dados">
+            <h3 id="nome-chapa"></h3>
+            <p><strong>Integrantes</strong></p>
+            <p id="integrantes-chapa"></p>
+          </div>
+        </section>
+      </div>
+
+      <div class="teclado" aria-label="Teclado numérico">
+        <button type="button" class="tecla" data-digito="1">1</button>
+        <button type="button" class="tecla" data-digito="2">2</button>
+        <button type="button" class="tecla" data-digito="3">3</button>
+        <button type="button" class="tecla" data-digito="4">4</button>
+        <button type="button" class="tecla" data-digito="5">5</button>
+        <button type="button" class="tecla" data-digito="6">6</button>
+        <button type="button" class="tecla" data-digito="7">7</button>
+        <button type="button" class="tecla" data-digito="8">8</button>
+        <button type="button" class="tecla" data-digito="9">9</button>
+        <span class="tecla-vazia" aria-hidden="true"></span>
+        <button type="button" class="tecla" data-digito="0">0</button>
+        <span class="tecla-vazia" aria-hidden="true"></span>
+      </div>
+
+      <div class="acoes">
+        <button type="button" id="corrigir" class="botao corrigir">CORRIGE</button>
+        <button type="button" id="confirmar" class="botao confirmar">CONFIRMA VOTO</button>
+      </div>
+    </section>
+
+    <aside class="lateral">
+      <h2>Como votar</h2>
+      <ol>
+        <li>Digite seu nome completo.</li>
+        <li>Digite os três dígitos da chapa.</li>
+        <li>Confira o número, o nome, os integrantes e a fotografia.</li>
+        <li>Pressione CONFIRMA VOTO somente se os dados estiverem corretos.</li>
+      </ol>
+      <div class="regra">
+        <h3>Regras da eleição</h3>
+        <ul>
+          <li>Voto anônimo.</li>
+          <li>Uma chapa por participação registrada.</li>
+          <li>Não há voto em branco.</li>
+          <li>Resultado disponível após o encerramento.</li>
+        </ul>
+      </div>
+      <div id="resultado-area" class="resultado-area" hidden>
+        <h2>Resultado final</h2>
+        <p id="resultado-resumo"></p>
+        <div id="resultado-lista"></div>
+        <button type="button" id="enviar-relatorio" class="botao confirmar">Enviar relatório à escola</button>
+        <p id="mensagem-relatorio" class="mensagem"></p>
+      </div>
+      <p class="alerta">A identificação por nome não comprova a identidade. Use este sistema somente após avaliar os riscos e testar a configuração.</p>
+    </aside>
+  </main>
+  <footer>Projeto educacional de Programação Web</footer>
+</body>
+</html>
